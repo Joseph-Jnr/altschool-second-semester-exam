@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text-secondary: #7b7588;
+    --white: #fff;
+    --light-blue: rgb(30, 58, 138);
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: unset;
+    padding: unset;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    color: var(--text-primary);
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+  }
+
+  ul li {
+    list-style: none;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  /* General utils */
+  .not--found {
+    @apply flex flex-col items-center justify-center h-screen text-white bg-slate-800;
+  }
+
+  .tr--container {
+    @apply container mx-auto px-0 md:px-20 lg:px-32;
+  }
+
+  .section--padding {
+    @apply py-24;
+  }
+
+  .section--header {
+    @apply mb-10;
+  }
+
+  .section--header--top {
+    @apply flex items-center justify-between mb-2;
+  }
+
+  .section--header h2 {
+    @apply w-max font-bold text-2xl text-aub--light--blue;
+  }
+
+  .section--header .header--divider {
+    @apply h-[1px] w-1/2 lg:w-5/6 bg-gray-200;
+  }
+
+  .section--header--bottom {
+    @apply text-aub--yellow;
+  }
+  /* General utils end */
+}
+
+@layer components {
+  .hero-text-area {
+    @apply pt-20 lg:pt-48;
+    color: var(--white);
+  }
+}
