@@ -5,10 +5,12 @@ const Navbar = () => {
   return (
     <Box className='tr--container' py={5}>
       <Flex alignItems='center' justifyContent='space-between'>
-        <Image src={Logo} w={35} />
+        <Link href='/'>
+          <Image src={Logo} w={35} />
+        </Link>
         <Flex gap={5}>
-          <Link href='/'>Profile</Link>
-          <Link href='/repositories'>Repositories</Link>
+          <Link href='/does-not-exist'>404</Link>
+          <Link href='/error'>Error Boundary</Link>
         </Flex>
       </Flex>
     </Box>

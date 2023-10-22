@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { Repositories, Home, RepositoryDetails } from './routes.lazyload'
-import { ErrorBoundary } from '@/components'
+import { ErrorBoundary, TriggerError } from '@/components'
 import NotFound from '@/pages/NotFound'
 
 const router = createBrowserRouter([
@@ -20,6 +20,13 @@ const router = createBrowserRouter([
     // Add a dynamic route for repository details
     path: '/repositories/:repoName',
     element: <RepositoryDetails />,
+    hasErrorBoundary: true,
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    // Add a dynamic route for repository details
+    path: '/error',
+    element: <TriggerError />,
     hasErrorBoundary: true,
     errorElement: <ErrorBoundary />,
   },
