@@ -15,6 +15,7 @@ const appTheme = extendTheme({
       7: '#334155',
       8: '#1E293B',
       10: '#020617',
+      lightGray: '#7D8590',
       black: '#0D1117',
       green: '#2EA043',
     },

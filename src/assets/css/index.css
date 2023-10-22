@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --text-secondary: #7b7588;
+    --text-primary: #d8d8d8;
     --white: #fff;
     --light-blue: rgb(30, 58, 138);
   }
@@ -37,11 +37,11 @@
 @layer utilities {
   /* General utils */
   .not--found {
-    @apply flex flex-col items-center justify-center h-screen text-white bg-slate-800;
+    @apply flex flex-col items-center justify-center h-screen text-white bg-gh--black;
   }
 
   .tr--container {
-    @apply container mx-auto px-0 md:px-20 lg:px-32;
+    @apply container mx-auto px-0 md:px-10 lg:px-32;
   }
 
   .section--padding {

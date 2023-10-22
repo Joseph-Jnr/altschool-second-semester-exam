@@ -9,7 +9,7 @@ const NotFound = () => (
       <h1 className='text-8xl'>404</h1>
       <p className='tracking-widest	text-lg'>- Page Not Found -</p>
       <Link to='/' className='my-4'>
-        <button className='py-2 hover:bg-white hover:text-slate-800 px-10 bg-slate-800 border-white border text-white'>
+        <button className='py-2 bg-white text-slate-800 px-10 hover:bg-black hover:border-white border hover:text-white'>
           Go back <strong>HOME</strong>
         </button>
       </Link>

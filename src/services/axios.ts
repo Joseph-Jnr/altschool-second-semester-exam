@@ -4,11 +4,13 @@ import axios, {
   InternalAxiosRequestConfig,
 } from 'axios'
 
+const githubToken = import.meta.env.VITE_GITHUB_PERSONAL_ACCESS_TOKEN
+
 const instance = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `token ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+    Authorization: `token ${githubToken}`,
   },
 })
 

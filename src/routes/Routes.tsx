@@ -11,14 +11,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
   },
   {
-    path: '/repos',
+    path: '/repositories',
     children: [{ element: <Repositories />, index: true }],
     hasErrorBoundary: true,
     errorElement: <ErrorBoundary />,
   },
   {
     // Add a dynamic route for repository details
-    path: '/repos/:repoName',
+    path: '/repositories/:repoName',
     element: <RepositoryDetails />,
     hasErrorBoundary: true,
     errorElement: <ErrorBoundary />,

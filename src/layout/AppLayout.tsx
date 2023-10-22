@@ -1,5 +1,5 @@
 import { Navbar } from '@/components'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 interface AppLayoutProps {
   children: React.ReactNode
@@ -7,12 +7,16 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <Flex maxWidth='1850px' bg='gh.black' mx='auto'>
-      <Box>
-        <Navbar />
-        <Box mt='10'>{children}</Box>
-      </Box>
-    </Flex>
+    <Box
+      maxWidth='1850px'
+      minHeight='100vh'
+      bg='gh.black'
+      color='gh.lightGray'
+      mx='auto'
+    >
+      <Navbar />
+      <Box py='10'>{children}</Box>
+    </Box>
   )
 }
 
