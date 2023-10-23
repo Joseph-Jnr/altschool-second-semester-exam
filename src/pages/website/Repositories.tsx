@@ -1,12 +1,20 @@
+import { useState } from 'react'
 import { PageHelmet, SectionHeading } from '@/components'
 import { AppLayout } from '@/layout'
 import { GetRepos } from '@/services'
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
 import { IconEye, IconGitFork } from '@tabler/icons-react'
 import { RepoSkeleton } from '@/components/skeletons'
 
 const Repositories = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(6)
+  const itemsToLoad = 6
+
+  const handleLoadMore = () => {
+    setItemsPerPage((prevItems) => prevItems + itemsToLoad)
+  }
+
   //Fetching repositories
   const { data: repoList, isFetching } = useQuery({
     queryKey: ['repos'],
@@ -28,7 +36,7 @@ const Repositories = () => {
                 <>
                   {repoList?.length > 0 ? (
                     <>
-                      {repoList.map((repo: any) => {
+                      {repoList.slice(0, itemsPerPage).map((repo: any) => {
                         return (
                           <Box
                             key={repo?.id}
@@ -39,13 +47,15 @@ const Repositories = () => {
                           >
                             <Flex justifyContent='space-between' gap={2}>
                               <Box>
-                                <Text
-                                  fontSize={18}
-                                  fontWeight='bold'
-                                  color='gh.4'
-                                >
-                                  {repo?.name}
-                                </Text>
+                                <Link href={`/repositories/${repo?.name}`}>
+                                  <Text
+                                    fontSize={18}
+                                    fontWeight='bold'
+                                    color='gh.4'
+                                  >
+                                    {repo?.name}
+                                  </Text>
+                                </Link>
                                 <Text fontSize={14}>{repo?.description}</Text>
                               </Box>
                               <Link href={`/repositories/${repo?.name}`}>
@@ -78,6 +88,33 @@ const Repositories = () => {
                     </Box>
                   )}
                 </>
+              )}
+
+              {itemsPerPage < repoList?.length && (
+                <Box
+                  width='full'
+                  height='300px'
+                  mt='-320px'
+                  backgroundImage='linear-gradient(to top, #0D1117, transparent)'
+                  position='relative'
+                >
+                  <Flex
+                    direction='column'
+                    align='center'
+                    justify='flex-end'
+                    h='100%'
+                  >
+                    <Button
+                      position='absolute'
+                      bottom='20px'
+                      left='50%'
+                      transform='translateX(-50%)'
+                      onClick={handleLoadMore}
+                    >
+                      Load more
+                    </Button>
+                  </Flex>
+                </Box>
               )}
             </Flex>
           </Box>

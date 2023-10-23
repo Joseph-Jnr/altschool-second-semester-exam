@@ -18,7 +18,7 @@ const SectionHeading = ({ title, canReturn }: SectionHeadingProps) => {
         <Heading size='lg'>{title}</Heading>
         {canReturn && (
           <Link href='/repositories'>
-            <Button size='sm' leftIcon={<IconArrowLeft />}>
+            <Button size='sm' leftIcon={<IconArrowLeft size={20} />}>
               Go back
             </Button>
           </Link>
